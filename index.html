@@ -13,7 +13,7 @@
     <header>
 
         <div class="caixa-header">
-            <input type="text" placeholder="Procure por um anime">
+            <input type="text" id="searchInput" placeholder="Procure por um anime">
             <a href="">
                 <i class='bx bxs-movie-play'></i>
             </a>
@@ -118,6 +118,67 @@
         </div>
 
     </main>
+
+    <!-- filtro de pesquisa -->
+    <script>
+        // Adiciona um evento de input ao campo de pesquisa
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase(); // Obtém o valor do campo de entrada e converte para minúsculas
+
+            // Seleciona todos os elementos .card
+            const cards = document.querySelectorAll('.card');
+
+            // Itera sobre os cards e verifica se o termo de pesquisa está presente no título de cada card
+            cards.forEach(function(card) {
+                const title = card.querySelector('h2'); // Obtém o título do card
+
+                // Verifica se o termo de pesquisa está presente no título do card
+                if (title.textContent.toLowerCase().includes(searchTerm)) {
+                    card.style.display = 'flex'; // Exibe o card
+                } else {
+                    card.style.display = 'none'; // Oculta o card
+                }
+            });
+        });
+    </script>
+
+    <!-- ordenador dos cards -->
+    <script>
+        // Função para ordenar os cards em ordem alfabética
+        function ordenarCards() {
+            const cardsContainer = document.querySelector('.caixa-cards');
+            const cards = Array.from(cardsContainer.querySelectorAll('.card'));
+
+            // Ordena os cards com base nos títulos (h2)
+            cards.sort((a, b) => {
+                const titleA = a.querySelector('h2').textContent.toLowerCase();
+                const titleB = b.querySelector('h2').textContent.toLowerCase();
+                return titleA.localeCompare(titleB);
+            });
+
+            // Remove todos os cards do container
+            cards.forEach(card => card.remove());
+
+            // Adiciona os cards ordenados de volta ao container
+            cards.forEach(card => cardsContainer.appendChild(card));
+        }
+
+        // Ordena os cards automaticamente ao carregar a página
+        window.addEventListener('load', ordenarCards);
+    </script>
+
+    <!-- atualizar a quantia de animes -->
+    <script>
+        // Função para contar quantos cards existem e atualizar o h1 com id "quantia"
+        function atualizarQuantidade() {
+            const cards = document.querySelectorAll('.card');
+            const quantidade = cards.length;
+            document.getElementById('quantia').textContent = quantidade;
+        }
+
+        // Chamada inicial da função para garantir que a quantidade seja exibida corretamente
+        atualizarQuantidade();
+    </script>
     
 </body>
 </html>
