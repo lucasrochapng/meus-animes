@@ -54,37 +54,91 @@
                     </div>
                 </div>
 
-                <!-- naruto shippuden -->
+                <!-- bleach -->
                 <div class="card">
-                    <img src="img/naruto-shippuden.jpg" alt="naruto">
-                    <h2>Naruto Shippuden</h2>
+                    <img src="img/0bleach.jpg" alt="naruto">
+                    <h2>Bleach</h2>
                     <div class="eps-temps">
                         <div>
-                            <i class='bx bxs-videos'></i>
-                            <p>500</p>
-                        </div>
-                        <div>
-                            <i class='bx bxs-component'></i>
-                            <p>17</p>
+                            <i class='bx bxs-book-content'></i>
+                            <p>686</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- bleach -->
+                <!-- shingeki -->
                 <div class="card">
-                    <img src="img/bleach.jpg" alt="naruto">
-                    <h2>Bleach</h2>
+                    <img src="img/0shingeki.jpg" alt="naruto">
+                    <h2>Shingeki no Kyojin</h2>
                     <div class="eps-temps">
                         <div>
-                            <i class='bx bxs-videos'></i>
-                            <p>392</p>
-                        </div>
-                        <div>
-                            <i class='bx bxs-component'></i>
-                            <p>18</p>
+                            <i class='bx bxs-book-content'></i>
+                            <p>139</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- nanatsu -->
+                <div class="card">
+                    <img src="img/0nanatsu.jpg" alt="naruto">
+                    <h2>Nanatsu no Taizai</h2>
+                    <div class="eps-temps">
+                        <div>
+                            <i class='bx bxs-book-content'></i>
+                            <p>346</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- solo -->
+                <div class="card">
+                    <img src="img/0solo-leveling.jpg" alt="naruto">
+                    <h2>Solo Leveling</h2>
+                    <div class="eps-temps">
+                        <div>
+                            <i class='bx bxs-book-content'></i>
+                            <p>200</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- tokyo revengers -->
+                <div class="card">
+                    <img src="img/0tokyo-revengers.jpg" alt="naruto">
+                    <h2>Tokyo Revengers</h2>
+                    <div class="eps-temps">
+                        <div>
+                            <i class='bx bxs-book-content'></i>
+                            <p>278</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- jujutsu -->
+                <div class="card">
+                    <img src="img/0jujutsu.jpg" alt="naruto">
+                    <h2>Jujutsu Kaisen</h2>
+                    <div class="eps-temps">
+                        <div>
+                            <i class='bx bxs-book-content'></i>
+                            <p>246</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- chainsaw -->
+                <div class="card">
+                    <img src="img/0chainsaw.jpg" alt="naruto">
+                    <h2>Chainsaw Man</h2>
+                    <div class="eps-temps">
+                        <div>
+                            <i class='bx bxs-book-content'></i>
+                            <p>150</p>
+                        </div>
+                    </div>
+                </div>
+
+                
 
                 
 
@@ -106,21 +160,28 @@
 
     </main>
 
-    <!-- filtro de pesquisa -->
+    <!-- Filtro de pesquisa -->
     <script>
-        // Adiciona um evento de input ao campo de pesquisa
         document.getElementById('searchInput').addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase(); // Obtém o valor do campo de entrada e converte para minúsculas
 
             // Seleciona todos os elementos .card
             const cards = document.querySelectorAll('.card');
 
-            // Itera sobre os cards e verifica se o termo de pesquisa está presente no título de cada card
+            // Itera sobre os cards e verifica se atende aos critérios de pesquisa
             cards.forEach(function(card) {
                 const title = card.querySelector('h2'); // Obtém o título do card
+                const epsTemps = card.querySelector('.eps-temps'); // Obtém a div com a classe "eps-temps"
+                const epsValue = epsTemps.querySelector('p').textContent; // Obtém o valor do número de episódios/temporadas
 
                 // Verifica se o termo de pesquisa está presente no título do card
-                if (title.textContent.toLowerCase().includes(searchTerm)) {
+                const searchTermMatchesTitle = title.textContent.toLowerCase().includes(searchTerm);
+
+                // Verifica se o termo de pesquisa começa com ":" e se o título do anime contém o termo de pesquisa e se a quantidade de episódios/temporadas é "--"
+                const searchTermIsUnwatchedAnime = searchTerm.startsWith("!") && epsValue === "--" && title.textContent.toLowerCase().includes(searchTerm.substring(1));
+
+                // Exibe o card se atender aos critérios de pesquisa ou se o campo de pesquisa estiver vazio
+                if (searchTermMatchesTitle || searchTermIsUnwatchedAnime || searchTerm === "") {
                     card.style.display = 'flex'; // Exibe o card
                 } else {
                     card.style.display = 'none'; // Oculta o card
@@ -130,28 +191,6 @@
     </script>
 
     <!-- atualiza os ícones de navegação -->
-    <!-- <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Seleciona os ícones dentro da caixa de cabeçalho
-            const homeIcon = document.getElementById('homeIcon');
-            const mangasIcon = document.getElementById('mangasIcon');
-
-            // Adiciona um evento de clique aos links de navegação
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(event) {
-                    // Remove a classe ativa de todos os ícones
-                    homeIcon.classList.remove('active');
-                    mangasIcon.classList.remove('active');
-
-                    // Adiciona a classe ativa ao ícone clicado
-                    const clickedIcon = this.querySelector('i');
-                    clickedIcon.classList.add('active');
-                });
-            });
-        });
-    </script> -->
-
     <script>
         // Adiciona um ouvinte para o evento DOMContentLoaded para garantir que o script seja executado após o carregamento completo do DOM
         document.addEventListener("DOMContentLoaded", function() {
@@ -200,7 +239,7 @@
         window.addEventListener('load', ordenarCards);
     </script>
 
-    <!-- atualizar a quantia de animes -->
+    <!-- atualizar a quantia de mangás -->
     <script>
         // Função para contar quantos cards existem e atualizar o h1 com id "quantia"
         function atualizarQuantidade() {
