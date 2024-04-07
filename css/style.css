@@ -32,6 +32,21 @@ body {
     background: linear-gradient(to bottom, #25252596, #25252596, #25252596, #252525f1, #252525, #252525); /* Adiciona um gradiente de preto transparente para transparente */
 }
 
+.logo {
+    position: absolute;
+    /* z-index: 999; */
+    bottom: 0;
+    left: 40%;
+    width: 10%;
+    
+}
+
+.logo img {
+    width: 100px;
+}
+
+
+
 /*! HEADER */
 .caixa-header {
     display: flex;
