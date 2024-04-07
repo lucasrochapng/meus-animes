@@ -12,6 +12,26 @@ body {
     background-color: #252525;
 }
 
+.video-container {
+    position: relative; /* Define a posição relativa para que possamos posicionar o gradiente sobre o vídeo */
+    width: 100%; /* Define a largura máxima para o vídeo */
+    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites da div */
+}
+
+.video-container video {
+    width: 100%; /* Garante que o vídeo preencha toda a largura da div pai */
+    height: auto; /* Mantém a proporção original do vídeo */   
+}
+
+.gradient-overlay {
+    position: absolute; /* Define a posição absoluta para que a camada de gradiente fique sobre o vídeo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #25252596, #25252596, #25252596, #25252596, #252525f1, #252525); /* Adiciona um gradiente de preto transparente para transparente */
+}
+
 /*! HEADER */
 .caixa-header {
     display: flex;
