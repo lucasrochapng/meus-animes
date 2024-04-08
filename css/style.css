@@ -55,13 +55,13 @@ body {
 .text-logo h4 {
     font-family: 'VT323', monospace;
     font-size: 20px;
-    font-weight: 100;
+    font-weight: 300;
     color: white;
 }
 
 #h4-2 {
     color: rgb(32, 155, 255);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 h4:first-child {
