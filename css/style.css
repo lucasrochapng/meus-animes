@@ -30,8 +30,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #25252596, #25252596, #25252596, #252525f1,  #252525);
-    
+    background: linear-gradient(to bottom, #2525259d, #252525a9, #252525c7, #252525ea, #252525fd, #252525);
+    /* background: linear-gradient(to bottom, #25252596, #25252596, #25252596, #25252596, #25252596, #25252596, #25252596, #252525c9, #252525ea, #252525);
+     */
 }
 
 .logo {
@@ -45,7 +46,8 @@ body {
 }
 
 .logo img {
-    width: 54px;
+    width: 50px;
+    padding-top: 4px;
 }
 
 .text-logo {
