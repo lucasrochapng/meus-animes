@@ -44,6 +44,10 @@
         </div>
     </div>
 
+    <div class="arrow-up" onclick="scrollToTop()">
+        <i class='bx bxs-up-arrow-circle'></i>
+    </div>
+
     <main>
 
         <div class="caixa-main">
@@ -1349,6 +1353,16 @@
 
         // Chamada inicial da função para garantir que a quantidade seja exibida corretamente
         atualizarQuantidade();
+    </script>
+
+    <!-- rolar a página -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Isso faz com que a rolagem seja suave
+            });
+        }
     </script>
 
     

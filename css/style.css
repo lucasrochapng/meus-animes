@@ -30,7 +30,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #25252596, #25252596, #25252596, #252525f1,  #252525); /* Adiciona um gradiente de preto transparente para transparente */
+    background: linear-gradient(to bottom, #25252596, #25252596, #25252596, #252525f1,  #252525);
+    
 }
 
 .logo {
@@ -68,7 +69,26 @@ h4:first-child {
     margin-bottom: -5px; /* Define a margem inferior */
 }
 
+.arrow-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 9999;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    width: 40px;
+    height: 40px;
+}
 
+.arrow-up i {
+    font-size: 60px;
+    color: rgb(32, 136, 255);
+    
+
+}
 
 
 /*! HEADER */
