@@ -80,14 +80,15 @@ h4:first-child {
     right: 20px;
     bottom: 20px;
     border-radius: 50%;
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(32, 136, 255); */
+    background: linear-gradient(to bottom, rgb(32, 136, 255), rgb(32, 136, 255), rgb(32, 222, 255));
     width: 40px;
     height: 40px;
 }
 
 .arrow-up i {
-    font-size: 60px;
-    color: rgb(32, 136, 255);
+    font-size: 25px;
+    color: white
     
 
 }
