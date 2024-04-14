@@ -13,6 +13,7 @@ body {
     background-color: #252525;
 }
 
+/*! CONTROLE DO VÍDEO ABAIXO DO HEADER */
 .video-container {
     position: relative; /* Define a posição relativa para que possamos posicionar o gradiente sobre o vídeo */
     width: 100%; /* Define a largura máxima para o vídeo */
@@ -71,12 +72,13 @@ h4:first-child {
     margin-bottom: -5px; /* Define a margem inferior */
 }
 
+/*! SETA QUE SOBE A PÁGINA */
 .arrow-up {
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
-    z-index: 9999;
+    z-index: 9997;
     right: 20px;
     bottom: 20px;
     border-radius: 50%;
@@ -91,6 +93,87 @@ h4:first-child {
     color: white
     
 
+}
+
+/*! ATALHOS INTELIGENTES */
+
+.atalhos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 9997;
+    right: 20px;
+    bottom: 70px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, rgb(32, 136, 255), rgb(32, 136, 255), rgb(32, 222, 255));
+    width: 40px;
+    height: 40px;
+}
+
+.atalhos i {
+    font-size: 25px;
+    color: white
+    
+
+}
+
+.infosInput {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #535353;
+    width: 320px;
+    padding: 15px;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.infosInput p {
+    color: gold;
+    font-size: 16px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 9998;
+}
+
+#closeInfosInput {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    color: #424242;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.box-titulo-infosinput {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.box-titulo-infosinput h3 {
+    color: white;
+    text-align: left;
+}
+
+.box-titulo-infosinput p {
+    color: rgb(161, 161, 161);
+    font-size: 16px;
+    text-align: justify;
+    padding-bottom: 10px;
 }
 
 

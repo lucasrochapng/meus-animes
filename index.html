@@ -44,10 +44,28 @@
         </div>
     </div>
 
+    <!-- atalhos -->
+    <div class="infosInput">
+        <i class='bx bx-x' id="closeInfosInput" onclick="fecharAtalhos()"></i>
+        <div class="box-titulo-infosinput">
+            <h3>ATALHOS INTELIGENTES</h3>
+            <p>Utilize os atalhos no campo de pesquisa para encontrar os animes desejados</p>
+        </div>
+        <p>"!" - Animes que possuo interesse</p>
+        <p>"?" - Animes que estou acompanhando</p>
+    </div>
+
+    <!-- ícone que abre os atalhos -->
+    <div class="atalhos" onclick="abrirAtalhos()">
+        <i class='bx bx-help-circle'></i>
+    </div>
+
+    <!-- ícone que sobe a página para o ínicio -->
     <div class="arrow-up" onclick="scrollToTop()">
-        <!-- <i class='bx bxs-up-arrow-circle'></i> -->
         <i class='bx bxs-chevron-up'></i>
     </div>
+
+    <div class="overlay"></div>
 
     <main>
 
@@ -1221,11 +1239,11 @@
                     <div class="eps-temps">
                         <div>
                             <i class='bx bxs-videos'></i>
-                            <p>--</p>
+                            <p>1</p>
                         </div>
                         <div>
                             <i class='bx bxs-component'></i>
-                            <p>--</p>
+                            <p>??</p>
                         </div>
                     </div>
                 </div>
@@ -1293,15 +1311,19 @@
                 const title = card.querySelector('h2'); // Obtém o título do card
                 const epsTemps = card.querySelector('.eps-temps'); // Obtém a div com a classe "eps-temps"
                 const epsValue = epsTemps.querySelector('p').textContent; // Obtém o valor do número de episódios/temporadas
+                const epsValue2 = epsTemps.querySelectorAll('p')[1].textContent; // Obtém o valor do segundo número de episódios/temporadas
 
                 // Verifica se o termo de pesquisa está presente no título do card
                 const searchTermMatchesTitle = title.textContent.toLowerCase().includes(searchTerm);
 
-                // Verifica se o termo de pesquisa começa com ":" e se o título do anime contém o termo de pesquisa e se a quantidade de episódios/temporadas é "--"
+                // Verifica se o termo de pesquisa começa com "!" e se o título do anime contém o termo de pesquisa e se a quantidade de episódios/temporadas é "--"
                 const searchTermIsUnwatchedAnime = searchTerm.startsWith("!") && epsValue === "--" && title.textContent.toLowerCase().includes(searchTerm.substring(1));
 
+                // Verifica se o termo de pesquisa é "?" e se o título do anime contém o termo de pesquisa e se a quantidade de episódios/temporadas é "??".
+                const searchTermIsQuestionMark = searchTerm.startsWith("?") && epsValue2 === "??" && title.textContent.toLowerCase().includes(searchTerm.substring(1));
+
                 // Exibe o card se atender aos critérios de pesquisa ou se o campo de pesquisa estiver vazio
-                if (searchTermMatchesTitle || searchTermIsUnwatchedAnime || searchTerm === "") {
+                if (searchTermMatchesTitle || searchTermIsUnwatchedAnime || searchTermIsQuestionMark || searchTerm === "") {
                     card.style.display = 'flex'; // Exibe o card
                 } else {
                     card.style.display = 'none'; // Oculta o card
@@ -1381,6 +1403,29 @@
             });
         }
     </script>
+
+    <!-- abrir e fechar os atalhos -->
+    <script>
+        // Função para abrir os atalhos
+        function abrirAtalhos() {
+            const infosInput = document.querySelector('.infosInput');
+            const overlay = document.querySelector('.overlay');
+            infosInput.style.display = 'flex';
+            overlay.style.display = 'flex';
+        }
+    
+        // Função para fechar os atalhos
+        function fecharAtalhos() {
+            const infosInput = document.querySelector('.infosInput');
+            const overlay = document.querySelector('.overlay');
+            infosInput.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+    
+        // Adiciona um evento de clique ao ícone de fechar
+        document.getElementById('closeInfosInput').addEventListener('click', fecharAtalhos);
+    </script>
+    
 
     
     
